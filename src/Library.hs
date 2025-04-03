@@ -34,13 +34,13 @@ perimetroCirculo :: Number -> Number
 perimetroCirculo radio = 2*pi*radio 
 
 perimetroCuadrado :: Number -> Number
-perimetroCuadrado lado = implementame
+perimetroCuadrado lado = 4 * lado
 
 superficieCuadrado :: Number -> Number
-superficieCuadrado lado = 4 * lado
+superficieCuadrado lado = lado * lado
 
 superficieCubo :: Number -> Number
-superficieCubo lado = 6 * lado
+superficieCubo lado = lado * lado * 6
 
 superficieCilindro :: Number -> Number -> Number
 superficieCilindro radio altura = 2 * pi * radio * altura + 2 * pi * radio * radio 

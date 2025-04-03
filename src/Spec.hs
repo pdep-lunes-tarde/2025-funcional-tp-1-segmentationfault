@@ -9,8 +9,8 @@ correrTests = hspec $ do
   -- Si alguna suit de tests tiene "focus" adelante, solo se va a correr esa.
   -- Asi que, para ir probando los puntos, agreguen focus a los demas, o saquenselo a todos:
   suiteDeTestsDeParteI
-  suiteDeTestsDeParteIBonus
-  focus suiteDeTestsDeParteII
+  focus suiteDeTestsDeParteIBonus
+  suiteDeTestsDeParteII
 
 suiteDeTestsDeParteI =
   describe "Parte I: Numeros" $ do
