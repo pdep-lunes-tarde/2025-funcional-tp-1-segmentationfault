@@ -1,19 +1,19 @@
 module Spec where
-import PdePreludat
+
 import Library
+import PdePreludat
 import Test.Hspec
 
 correrTests :: IO ()
 correrTests = hspec $ do
--- Si alguna suit de tests tiene "focus" adelante, solo se va a correr esa.
--- Asi que, para ir probando los puntos, agreguen focus a los demas, o saquenselo a todos:
-  focus suiteDeTestsDeParteI
-  suiteDeTestsDeParteIBonus
+  -- Si alguna suit de tests tiene "focus" adelante, solo se va a correr esa.
+  -- Asi que, para ir probando los puntos, agreguen focus a los demas, o saquenselo a todos:
+  suiteDeTestsDeParteI
+  focus suiteDeTestsDeParteIBonus
   suiteDeTestsDeParteII
-  
+
 suiteDeTestsDeParteI =
   describe "Parte I: Numeros" $ do
-
     describe "siguiente" $ do
       it "el siguiente de un numero es el numero + 1" $ do
         siguiente (-1) `shouldBe` 0
@@ -52,41 +52,36 @@ suiteDeTestsDeParteII =
   describe "Parte 2: Temperaturas" $ do
     describe "celsiusAFahrenheit" $ do
       it "pasa una temperatura de celsius a fahrenheit" $ do
-        pendingWith "Reemplacen los implementame con valores de prueba que ustedes elijan. Luego borren esta linea"
-        celsiusAFahrenheit implementame `shouldBeEqualUpTo2Decimals` implementame
+        celsiusAFahrenheit 20 `shouldBeEqualUpTo2Decimals` 68
 
     describe "fahrenheitACelsius" $ do
       it "pasa una temperatura de fahrenheit a celsius" $ do
-        pendingWith "reemplacen los 'implementame' por valores de prueba que ustedes elijan, luego borren esta linea"
-        fahrenheitACelsius implementame `shouldBeEqualUpTo2Decimals` implementame
+        fahrenheitACelsius 77 `shouldBeEqualUpTo2Decimals` 25
 
     describe "fahrenheitACelsius y celsiusAFahrenheit son inversas" $ do
       it "convertir un valor en celsius a fahrenheit y luego volver a convertir a celsius retorna el valor original" $ do
-        pendingWith "Escriban el cuerpo de un test en el que se chequee que si convierto un numero a fahrenheit y luego convierto el resultado a celsius obtengo el valor original"
+        fahrenheitACelsius (celsiusAFahrenheit 25) `shouldBeEqualUpTo2Decimals` 25 
       it "convertir un valor en fahrenheit a celsius y luego volver a convertir a fahrenheit retorna el valor original" $ do
-        pendingWith "Lo mismo que el test anterior pero al reves"
-      
+        celsiusAFahrenheit (fahrenheitACelsius 55) `shouldBeEqualUpTo2Decimals` 55
 
     describe "haceFrioCelsius" $ do
       -- Pista: hay 3 casos a testear
       it "Es verdad cuando hacen menos de 8 grados celsius" $ do
-        pendingWith "Escribir el cuerpo de este test"
-        
-      it "" $ do
-        pendingWith "Escribir un nombre para este test"
+        haceFrioCelsius 7 `shouldBe` True
+      it "Es falso cuando hace mas de 8 grados celsius" $ do
+        haceFrioCelsius 9 `shouldBe` False
+      it "Es verdad cuando hace 8 grados celsius" $ do
         haceFrioCelsius 8 `shouldBe` True
-      it "" $ do
-        pendingWith "Pensar un caso para este test, escribir el nombre y el cuerpo del mismo"
 
     describe "haceFrioFahrenheit" $ do
       -- Pista: hay 3 casos a testear
-      it "" $ do
-        pendingWith "Pensar un caso para este test, escribir el nombre y el cuerpo del mismo"
-      it "" $ do
-        pendingWith "Escribir un nombre para este test"
+      it "Es falsa cuando hace mas de 46.4 grados Fahrenheit" $ do
+        haceFrioFahrenheit 50 `shouldBe` False
+      it "Es verdad cuando hace 46.4 grados Fahrenheit(8 grados Celsius)" $ do
         haceFrioFahrenheit 46.4 `shouldBe` True
-      it "" $ do
-        pendingWith "Pensar un caso para este test, escribir el nombre y el cuerpo del mismo"
+      it "Es verdad cuando hace menos de 46.4 grados Fahrenheit" $ do
+        haceFrioFahrenheit 40 `shouldBe` True
+        
 
 escribiTestsParaEstaFuncion :: SpecWith ()
 escribiTestsParaEstaFuncion = pure ()
@@ -94,7 +89,7 @@ escribiTestsParaEstaFuncion = pure ()
 shouldBeEqualUpTo2Decimals :: Number -> Number -> Expectation
 shouldBeEqualUpTo2Decimals aNumber anotherNumber = shouldBeEqualWithErrorLessThan 0.01 aNumber anotherNumber
 
-shouldBeEqualWithErrorLessThan :: Number -> Number -> Number -> Expectation       
+shouldBeEqualWithErrorLessThan :: Number -> Number -> Number -> Expectation
 shouldBeEqualWithErrorLessThan error aNumber anotherNumber
   | aNumber - anotherNumber < error = pure () -- Esto hace que el test de verde!
   | otherwise = expectationFailure (show aNumber ++ " no es igual (comparando con error < " ++ show error ++ ") a " ++ show anotherNumber)

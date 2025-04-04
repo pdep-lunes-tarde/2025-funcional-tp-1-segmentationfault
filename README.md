@@ -2,14 +2,14 @@
 
 ## Grupo, nombre y legajo de integrantes
 
-- Nombre del grupo: **Completar**
+- Nombre del grupo: **SegmentationFault**
 
 Integrantes:
-- Legajo: **Completar** 
-- Nombre: **Completar**
+- Legajo: **221.135-0** 
+- Nombre: **Matias Maccaroni**
 
-- Legajo: **Completar** 
-- Nombre: **Completar**
+- Legajo: **209.104-5** 
+- Nombre: **Nicolás Samir Mustafa**
 
 
 ## Objetivos
