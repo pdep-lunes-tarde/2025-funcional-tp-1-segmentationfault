@@ -8,8 +8,8 @@ Integrantes:
 - Legajo: **221.135-0** 
 - Nombre: **Matias Maccaroni**
 
-- Legajo: **Completar** 
-- Nombre: **Completar**
+- Legajo: **209.104-5** 
+- Nombre: **Nicolàs Samir Mustafa**
 
 
 ## Objetivos
