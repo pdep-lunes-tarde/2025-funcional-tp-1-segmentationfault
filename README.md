@@ -9,7 +9,7 @@ Integrantes:
 - Nombre: **Matias Maccaroni**
 
 - Legajo: **209.104-5** 
-- Nombre: **Nicolàs Samir Mustafa**
+- Nombre: **Nicolás Samir Mustafa**
 
 
 ## Objetivos
